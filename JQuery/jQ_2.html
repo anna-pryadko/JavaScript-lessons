@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron gradient" id="jum">
+            <h1 class="display-4 tx">Bootstrap Grid<br>Template</h1>
+        </div>
+    
+    
+    <nav class="navbar navbar-light bg-light" id="nav1">
+  <a class="navbar-brand" href="#">Navbar1</a>
+</nav>
+
+
+<nav class="navbar navbar-light bg-light" id="nav2">
+  <span class="navbar-brand mb-0 h1">Navbar2</span>
+  
+</nav>
+
+
+<input type="buttom" class="btn btn-primary but" id="bt1" value="Jumbotron" />
+<input type="buttom" class="btn btn-primary but" id="bt2" value="Navbar1" />
+<input type="buttom" class="btn btn-primary but" id="bt3" value="Navbar2" />
+</div>
+
+
+
+<script>
+    $('#bt1').on('click',function(){
+        $('#jum').slideToggle(200);
+    })
+    
+     $('#bt2').on('click',function(){
+        $('#nav1').slideToggle(200);
+    })
+    
+     $('#bt3').on('click',function(){
+        $('#nav2').slideToggle(200);
+    })
+    
+    </script>
+</body>
+</html>

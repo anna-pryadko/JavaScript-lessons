@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <style>
+    .card
+        {
+            margin: 10px;
+            border: 1px solid black;
+        }
+</style>
+
+</head>
+<body>
+
+        <div class="container">
+                 
+            <div class="row prin">
+                
+            </div>
+
+        </div>
+ 
+</body>    
+
+
+<script>
+arr=[];
+getProduct()
+
+function getProduct()
+       {
+        pId=localStorage.pId;   
+    
+        var myUrl = `http://404040.co.il/shop/product.php?id=${pId}`;
+        $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            success: function (data) {     
+                print(data);
+                console.log(data);
+               
+            },
+            error: function (err) {
+                console.log("error : ", error);
+            }
+            
+        });
+        
+        }
+
+
+        function print(data)
+        {
+        shopURL="http://www.mystor.co.il/php/";
+        str="";
+        var $prin=$('.prin');
+        $(".prin").html('');
+        
+         $.each(data,function(i,arr_prin)
+               {
+              image_url=arr_prin.image;
+              str="<div class='card' style='width: 18rem;'>";
+              str+="<img class='card-img-top' src="+shopURL+image_url+" alt='Card image cap'>";
+              str+="<div class='card-body'>";
+              str+="<h5 class='card-title'>"+arr_prin.name+"</h5>";
+              str+="<p class='card-text'>"+arr_prin.desc+"</p>";
+              str+="<p class='card-text'>Price:  "+arr_prin.new_price+"</p>";
+              str+="</div>";
+              str+="</div>";
+           
+             $prin.append(str);
+               });
+        }
+
+        // function goToProd(pId)
+        // {
+               
+        //     localStorage.arr_prod=JSOM.stringfy(arr[pId]);
+        //     // window.location.href="product.html";  
+        // }
+
+    </script>
+
+</html>

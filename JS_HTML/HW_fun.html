@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <style>
+        .container
+        {
+            padding-top: 30px;
+        }
+        
+        .but
+        
+        {
+            margin: 10px;
+        }
+        
+       .pr_box
+        {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid black;
+            float: left;
+        }
+        
+        .red
+        {
+            background-color: red;
+        }
+        
+        .blue
+        {
+            background-color: blue;
+        }
+        
+        .green
+        {
+            background-color: green;
+        }
+        
+        .yellow
+        {
+            background-color: yellow;
+        }
+        
+        .text
+        {
+            font-size: 30px;
+            text-align: center;
+            padding-top:5px; 
+        }
+        
+        #bt1 
+        {
+            background-color: red;
+            color: black;
+            
+        }
+        
+         #bt2 
+        {
+            background-color: blue;
+            color: black;
+        }
+        
+         #bt3 
+        {
+            background-color: green;
+            color: black;
+        }
+        
+         #bt4 
+        {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+   <div class="row">
+   <div class="col-6">
+  
+    <form>
+         <input type="buttom" class="btn btn-primary but" id="bt1" value="Red" onclick="createBox('red')" />
+          <input type="buttom" class="btn btn-primary but" id="bt2" value="Blue" onclick="createBox('blue')" />
+           <input type="buttom" class="btn btn-primary but" id="bt3" value="Green" onclick="createBox('green')" />
+            <input type="buttom" class="btn btn-primary but" id="bt4" value="Yellow" onclick="createBox('yellow')" />
+            
+    </form>
+   
+    </div>
+    
+    <div class="col-6">
+        <form>
+            <div class="form-group">
+                <label for="f1">Enter Number of Cube</label>
+                <input type="text" class="form-control" id="f1" placeholder="Number of box">
+                <input type="buttom" class="btn btn-primary but" id="bt" value="Delete" onclick="deleteBox()" />
+                
+            </div>
+        </form>
+        
+    </div>
+    
+    </div>
+    </div>
+    
+    <div id="dv">
+        
+    </div>
+    <script>
+        arrBox=[];
+        
+        function createBox(color)
+        {
+         box={};  
+         box.color= color;
+         arrBox.push(box);
+         printBox();
+        }
+        
+        function printBox()
+            {
+         str="";         
+         for (i=0;i<arrBox.length;i++)   
+             {
+         str+="<div class='"+arrBox[i].color+" pr_box' onclick='deleteBoxById("+i+")'>";
+         str+="<p class='text'>"+(i+1)+"</p>";      
+         str+="</div>";
+             }
+         dv.innerHTML=str;  
+                }
+        
+        function deleteBox()
+        {
+            delNumber=f1.value; 
+            arrBox.splice((delNumber-1),1);
+            
+            printBox();   
+        }
+        
+        function deleteBoxById(i)
+        {
+            console.log(i)
+            arrBox.splice(i,1);
+            
+            printBox();  
+        }
+        
+    </script>
+    
+</body>
+</html>

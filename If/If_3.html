@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+    Num=Number(prompt("Enter number"));
+        arr=[];
+         
+ /*       N1=Math.floor(Num/100);    
+        N2=Math.floor((Num-(N1*100))/10);
+        N3=Math.floor(Num-(N1*100)-(N2*10));
+        
+        Num2=(N3*100)+(N2*10)+N1;
+        
+        alert(Num2); */
+        
+        for(i=0;i<3;i++)
+            {
+                arr[i]=Num%10;
+                Num=Math.floor(Num/10);
+                
+            }
+        console.log(arr);
+        
+        Num=arr[0]*100+arr[1]*10+arr[2];
+        
+        alert(Num);
+        
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

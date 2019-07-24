@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+    .open1,.open2,.open3
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="card-group">
+    <div class="card">
+        <img class="card-img-top" src="cat1.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Getting clean with the right kind of litter</h5>
+            <p class="card-text">Tn normal circumstance kittens will imitate their mother playfully in practically everything she does – and this applies equally to using the cat’s toilet. You can start getting the kittens into the habit as soon as they are three weeks old.</p>
+            <p class="card-text open1">Ideal for the purpose are special flat plastic bowls, which you can get from a pet shop. These have a deep indent at the edge and a corrugated access, so that even baby cats can get in and out without a problem. </p>
+            <a href="#" class="btn btn-primary b" my_open="open1">Read more</a>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="cat5.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Here’s how to train your cat not to scratch </h5>
+            <p class="card-text">People with cats realise eventually – after their favourite arm chair has been shredded – that cats organise ‘their home’ quite systematically themselves. So if you want to keep a “Bonsai Tiger” in your living room, you must be prepared to face some quite new challenges. </p>
+            <p class="card-text open2">If you were just planning to install some designer furniture and redo the wallpaper… you’d better wait a while until you’re single again, because sofas, wooden furniture and wallpaper are top of the cat scratching hit list.</p>
+            <a href="#" class="btn btn-primary b" my_open="open2">Read more</a>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="cat3.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Roaming cat or house cat?</h5>
+            <p class="card-text">People who plan or are obliged to move house a lot, if they want to have a cat as a pet, should decide to opt for a cat who stays at home.</p>
+            <p class="card-text open3">This is because basically cats do not cope well with a change of place. Outdoor cats frequently return to their original home territory, even if it is quite a few miles away from their new home.
+                To help a cat accommodate to its new surroundings, you shouldn’t let it go out for the first four weeks, or even longer – something that a pure outdoor cat is hardly going to put up with. It’s a real trial for an animal that has been living hitherto as a free and adventurous spirit suddenly to be shut up all day indoors.</p>
+            <a href="#" class="btn btn-primary b" my_open="open3">Read more</a>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div> 
+<div id="paint">
+      
+</div>
+   
+   <script>
+//        $(".open1").hide();
+//        $(".open2").hide();
+//        $(".open3").hide();
+        
+//        $('#b1').on('click',function(){
+//        $('.open1').slideToggle(200);
+//        })
+//        $('#b2').on('click',function(){
+//        $('.open2').slideToggle(200);
+//        })
+//        $('#b3').on('click',function(){
+//        $('.open3').slideToggle(200);
+//        })
+            
+          $ (function() {
+              $('.b').on('click', function(){
+                  var open=($(this).attr('my_open'));
+                  $('.'+open).slideToggle(200);
+              })
+          });
+        
+       
+   </script> 
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+</head>
+<body>
+     
+<div class="row p-3">
+    <div class="col-3">
+        <form>
+            <div class="form-group">
+                <label for="f1">Enter Name</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="f2">Enter Mail</label>
+                <input type="text" class="form-control" id="f2" placeholder="Enter Mail">
+            </div>
+            <div class="form-group">
+                <label for="f3">Enter phone</label>
+                <input type="text" class="form-control" id="f3" placeholder="Enter phone">
+            </div>
+            <input type="buttom" id="bt" value="OK" onclick="getValueFromHTML()" />
+            <br>
+            <input type="buttom" id="bt2" value="Print" onclick="printStudent(arr)" />
+        </form>
+    </div>
+
+
+    <div class="col-6 offset-2"  id="pr">
+
+    </div>
+</div>
+                           
+      <script>
+         
+         arr=[]; 
+         str="";  
+
+          function getValueFromHTML()
+        {
+          student={};    
+          student.name=f1.value ;  
+          student.mail=f2.value ;
+          student.phone=f3.value ;
+          arr.push(student);
+            
+          console.log(arr);
+
+        }
+            
+          function printStudent(arr)
+          {  
+
+          
+              str="<table class='table'>";
+              str+="<thead>";
+              str+="<tr>";
+              str+="<th scope='col'>#</th>";
+              str+="<th scope='col'>Name</th>";
+              str+="<th scope='col'>Mail</th>";
+              str+="<th scope='col'>Phone</th>";
+              str+="</tr>";
+              str+="</thead>";
+              str+="<tbody>";
+              
+               for (i=0;i<arr.length;i++)
+          {
+              str+="<tr>";
+              str+="<th scope='row'>"+(i+1)+"</th>";
+              str+="<td>"+arr[i].name+"</td>";
+              str+="<td>"+arr[i].mail+"</td>";
+              str+="<td>"+arr[i].phone+"</td>";
+              str+="</tr>";
+              
+              pr.innerHTML=str;
+          }
+              str+="</tbody>";
+              str+="</table>";
+          }
+          
+    </script> 
+       
+</body>
+</html>

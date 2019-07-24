@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form>
+  
+  <input type="buttom"  id="bt" value="Ok" onclick="paint()" />
+ 
+   </form>
+   
+    
+    <canvas id="myCanvas" width="500" height="400"></canvas>
+   
+    
+   <script>
+       
+       arr=[];
+       
+      
+      var canvas=document.getElementById('myCanvas')
+      canvas.style.backgroundColor='lightgray';
+       
+      var ctx=canvas.getContext('2d');
+       
+      var arrColors = [ "red", "blue", "green", "orange", "aqua", "violet" ];
+       
+       function paint()
+       {
+           
+           ctx.clearRect(0,0,500,400);
+           
+            if (arr.length>0)
+           
+           {
+               for (i=0;i<arr.length;i++)
+                   {
+              ctx.fillStyle=arr[i].color;
+                       
+              ctx.fillRect(arr[i].x, arr[i].y, arr[i].r, arr[i].r); //x,y,width,height 
+                   }
+           }
+           
+          
+           
+           r=Math.floor(Math.random()*80);
+           x=Math.floor(Math.random()*420);
+           y=Math.floor(Math.random()*320);
+           ctx.fillStyle=arrColors[Math.floor(Math.random() * arrColors.length)];
+           ctx.fillRect(x, y, r, r); //x,y,width,height 
+               
+           cube={}
+           cube.x=x;
+           cube.y=y;
+           cube.r=r;
+           cube.color=ctx.fillStyle;
+       
+           arr.push(cube);
+           console.log(arr);
+           
+               
+      }
+       
+       
+       
+//       arr=[];
+//       
+//       function addCube()
+//       {
+//           
+//       }
+    </script>   
+</body>
+</html>

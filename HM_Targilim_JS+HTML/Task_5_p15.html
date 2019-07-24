@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  <div id="dv">
+        
+    </div>
+    
+   <form>
+        <input type="number" id="f1" placeholder="Enter min four digit number"/>
+        
+        <input type="buttom" id="bt" value="OK" onclick="getValueFromHTML()"/>
+    </form>
+  
+  <script>
+     D=document.getElementById("dv");    
+     function getValueFromHTML()
+        {
+          F1= Number(document.getElementById("f1").value) ;  
+         
+         D.innerHTML+="Rigth digit is: "+ F1%10 ;
+        } 
+    </script>
+    
+</body>
+</html>

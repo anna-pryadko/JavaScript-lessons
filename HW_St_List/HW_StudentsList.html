@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <title>Document</title>
+    <script src="students.js"></script>
+    <title>Students List</title>
+    <style>
+/*
+        .table
+        {
+            direction: rtl;
+        }
+*/
+        
+         h1
+        {
+            text-align: center;
+            padding: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Students List</h1>
+    
+<div class="row">
+   <div class="col-3 offset-3">
+    <p id="schoolName"></p>
+    <p id="grade"></p>
+    <p id="totalStudents"></p>
+    
+  </div>  
+</div>
+ <div class="row p-3">
+ <div class="col-6 offset-2">
+   <table class='table'>
+              <thead>
+              <tr>
+              <th scope='col'>#</th>
+              <th scope='col'>First Name</th>
+              <th scope='col'>Last Name</th>
+              <th scope='col'>Address</th>
+              <th scope='col'>Phone</th>
+              <th scope='col'>Email</th>
+              <th scope='col'>Updated At</th>
+              <th scope='col'>Created At</th>
+              <th scope='col'>Grades AVRG</th>
+              </tr>
+              </thead>
+              <tbody id="prin">
+              </tbody>
+              </table>
+
+    </div>
+</div>
+
+    <script>
+    
+         printStudents();
+       
+        function printStudents()
+       {
+        schoolName.innerHTML="School Name:  "+Students.school;
+        grade.innerHTML="Grade:  "+Students.grade;
+        totalStudents.innerHTML="Total Students:  "+Students.totalStudents;
+           
+             str=""; 
+              
+               for (i=0;i<Students.data.length;i++)
+                  {
+              str+="<tr>";
+              str+="<th scope='row'>"+(i+1)+"</th>";
+              str+="<td>"+Students.data[i].first_name+"</td>";
+              str+="<td>"+Students.data[i].last_name+"</td>";
+              str+="<td>"+Students.data[i].address+"</td>";
+              str+="<td>"+Students.data[i].phone+"</td>";
+              str+="<td>"+Students.data[i].email+"</td>";
+              str+="<td>"+Students.data[i].updatedAt+"</td>";
+              str+="<td>"+Students.data[i].createdAt+"</td>";
+//              str+="<td>"+Students.data[i].grades+"</td>";
+             
+              str+="<td><button type='button' class='btn btn-primary' onclick='CalcGradesAVRG("+i+")'>Grades AVRG</button></td>";
+              
+              str+="</tr>";
+              
+                  }
+          prin.innerHTML=str;
+             
+          }
+    
+        function CalcGradesAVRG(i)
+        {
+            GradesArr=[];
+            GradesArr=Students.data[i].grades;
+            FirstName=Students.data[i].first_name;
+            LastName=Students.data[i].last_name;
+            
+            GradesAVRG=0;
+            
+            for (i=0;i<GradesArr.length;i++)
+                {
+                   GradesAVRG=GradesAVRG+Number(GradesArr[i]);
+                }
+            alert(FirstName+" "+LastName+" has the GradesAVRG "+(GradesAVRG/GradesArr.length));
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

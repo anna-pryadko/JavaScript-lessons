@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  <div id="dv">
+        
+    </div>
+    
+   <form>
+        <input type="number" id="f1" placeholder="Enter diameter, cm"/>
+        <input type="number" id="f2" placeholder="Enter depth, cm"/>
+        
+        <input type="buttom" id="bt" value="OK" onclick="getValueFromHTML()"/>
+    </form>
+  
+  <script>
+     D=document.getElementById("dv");    
+     function getValueFromHTML()
+        {
+          F1= Number(document.getElementById("f1").value) ;  
+          F2= Number(document.getElementById("f2").value) ;
+         
+         
+         D.innerHTML+="Volume "+    ((3.14*F2*F1*F1)/4)*0.001+"  liters";
+        } 
+    </script>
+    
+</body>
+</html>

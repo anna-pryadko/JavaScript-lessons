@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
+    <title>Search Flags</title>
+    <style>
+        .btn
+        {
+           margin: 10px; 
+           margin-top: 30px;
+        }
+        h1
+        {
+            text-align: center;
+            font-family: 'Carter One', cursive;
+            margin-bottom: 30px;
+        }
+        .pic
+        {
+            height: 150px;
+            width: 220px;
+            margin-bottom: 25px;
+            margin-top: 25px;
+        }
+        .container
+        {
+            margin-top: 30px;
+            height: 200px;
+        }
+        .country
+        {
+            background-color: antiquewhite;
+            border: 2px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;   
+        }
+        .tx
+        {
+            font-size:  13px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Country Flag</h1>
+        <div class="row">
+            <div class="col-5">
+            
+                
+                    <div class="form-group">
+                        <label for="f1">Enter Country Name</label>
+                        <input type="text" class="form-control" id="CountryName" placeholder="Enter country name">
+                    </div>
+            </div>   
+            <div class="col-2">     
+                    <input type="buttom" class="btn btn-primary but" id="bt" value="Search" onclick="Search()" />
+            </div>    
+            <div class="col-2 offset-1">   
+                    <input type="buttom" class="btn btn-primary but" id="bt2" value="All" onclick="GetAll()" />
+            </div>
+        </div>
+        <div class="row printCountries">
+
+        </div>
+    </div>                 
+</body>
+<script>
+arr=[];
+    function GetAll()
+        {
+            var myUrl = `https://restcountries.eu/rest/v2/all`;
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+            arrCountries=data; 
+            Print(); 
+            },
+            error: function (error) {
+            console.log("error : ", error);
+            }
+        });     
+        }
+
+    function Print()
+    {
+        str="";
+        document.getElementById("CountryName").value = "";  
+        $(".printCountries").html('');
+        arrCurrencies=[];
+        var $printCountries=$('.printCountries');
+         $.each(arrCountries,function(i,arr_prin)
+               {
+              arrCurrencies=arr_prin.currencies;
+              str="<div class='col-5 offset-1'>"
+              str+="<div class='row country'>"
+              str+="<div class='col-6'>"
+              str+="<img class='pic' src="+arr_prin.flag+">";
+              str+="</div>";
+              str+="<div class='col-6 tx'>"
+              str+="<p>Name:  "+arr_prin.name+"</p>";
+              str+="<p>Capital:  "+arr_prin.capital+"</p>";
+              str+="<p> Top Level Domain: "+arr_prin.topLevelDomain+"</p>";
+              str+="<p> Currencies: code: "+arrCurrencies[0].code+", name: "+arrCurrencies[0].name+", symbole: "+arrCurrencies[0].symbol+"</p>";
+              str+="</div>";
+              str+="</div>";
+              str+="</div>";
+              str+="<br>";
+
+             $printCountries.append(str);
+               });
+    } 
+
+    function Search()
+        {
+            var myUrl = `https://restcountries.eu/rest/v2/name/${CountryName.value}`;
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+            arrCountries=data; 
+            Print();  
+            },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        }); 
+        }
+</script>
+</html>

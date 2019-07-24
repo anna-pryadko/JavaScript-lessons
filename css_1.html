@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+    <div id="panel1">
+        This is panel 1
+    </div>
+
+
+    <script>
+        var color = "red";
+        $("#panel1").html("<p>Test1</p>");
+        $("#panel1").append("<p>Test</p>");
+        $("#panel1").css({ color: color, border: '1px solid black', padding: '20px' });
+
+
+
+        //$('#panel1').hide(0).show(4500).delay(10000).hide(8000);
+    </script>
+</body>
+
+</html>

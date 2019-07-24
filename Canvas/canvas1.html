@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+ <form>
+  <input type="text" id="f1" placeholder="Enter Number">
+  <input type="buttom"  id="bt" value="Ok" onclick="paint()" />
+   </form>
+   
+   <canvas id="myCanvas" width="600" height="600"></canvas>
+   
+   <script>
+    
+       
+     var canvas=document.getElementById('myCanvas')
+      canvas.style.backgroundColor='grey';
+       
+      var ctx=canvas.getContext('2d');
+    
+        
+       function paint()
+       {
+           
+        ctx.fillStyle='red';     
+        j=f1.value;
+        console.log(j);   
+           
+         for(i=0;i<j;i=i+1)
+           { 
+               
+        x=Math.floor(Math.random()*500);
+        y=Math.floor(Math.random()*500);
+        r=Math.floor(Math.random()*50);
+        
+        ctx.beginPath();       
+        ctx.arc(x,y,r,0,2*Math.PI);  
+        ctx.fill();   
+       
+           }
+          
+       }
+ 
+   
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <style>
+/*
+      .big1 
+        {
+            width: 100%;
+            height: 200px;
+            border: 10px solid black;
+        }
+*/
+        
+/*
+        .big2
+        {
+            width: 100%;
+            height: 200px;
+            border-top: 10px solid black;
+            border-bottom: 10px solid black;
+        }
+        
+*/
+/*
+        .small1 
+        {
+            width: 100%;
+            height: 100px;
+            border-top: 10px solid black;
+            border-left: 10px solid black;
+            border-bottom: 10px solid black;
+        }
+        
+*/
+/*
+        .small2 
+        {
+            width: 100%;
+            height: 100px;
+            border-left: 10px solid black;
+            border-bottom: 10px solid black;
+        }
+ */   
+/*
+        .small3 
+
+        {
+            width: 100%;
+            height: 100px;
+            border: 10px solid black;
+            
+        }
+        
+         .small4 
+        {
+            width: 100%;
+            height: 100px;
+            border-bottom: 10px solid black;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+        }
+    
+*/
+    
+    </style>
+    
+</head>
+<body>
+<div class="container">
+<div class="row">
+    <div class="col-4 big">
+        <div class="row">
+            <div class="col-12 small1 p-0"  id="box1"></div>
+        </div>
+        <div class="row">
+            <div class="col-6 small2 p-0" id="box2"></div>
+            <div class="col-6 small2 p-0" id="box3"></div>
+        </div>
+    </div>
+    <div class="col-4 big1 p-0" id="box4"></div>
+    <div class="col-2 big2 p-0" id="box5"></div>
+    <div class="col-2 p-0">
+        <div class="col-12 small3 p-0" id="box6"></div>
+        <div class="col-12 small4 p-0" id="box7"></div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-2 small2" id="box8"></div>
+        <div class="col-4 small2" id="box9"></div>
+        <div class="col-4 small2" id="box10"></div>
+        <div class="col-2 small4" id="box11"></div>
+    </div>
+</div>
+
+<script>
+    Mydiv=document.getElementById("box1");
+    Mydiv.innerHTML="1";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderTop="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box2");
+    Mydiv.innerHTML="2";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box3");
+    Mydiv.innerHTML="3";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box4");
+    Mydiv.innerHTML="4";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="200px";
+    Mydiv.style.border="10px solid black";
+    
+    Mydiv=document.getElementById("box5");
+    Mydiv.innerHTML="5";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="200px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderTop="10px solid black";
+    
+    Mydiv=document.getElementById("box6");
+    Mydiv.innerHTML="6";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.border="10px solid black";
+    
+    Mydiv=document.getElementById("box7");
+    Mydiv.innerHTML="7";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderRight="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box8");
+    Mydiv.innerHTML="8";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box9");
+    Mydiv.innerHTML="9";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box10");
+    Mydiv.innerHTML="10";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    Mydiv=document.getElementById("box11");
+    Mydiv.innerHTML="11";
+    Mydiv.style.textAlign="center";
+    Mydiv.style.width="100%";
+    Mydiv.style.height="100px";
+    Mydiv.style.borderBottom="10px solid black";
+    Mydiv.style.borderRight="10px solid black";
+    Mydiv.style.borderLeft="10px solid black";
+    
+    
+    
+</script>
+</body>
+</html>

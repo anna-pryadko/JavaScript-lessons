@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  <div id="dv">
+        
+    </div>
+    
+   <form>
+        <input type="number" id="f1" placeholder="Enter first number"/>
+        <input type="number" id="f2" placeholder="Enter second number"/>
+        <input type="number" id="f3" placeholder="Enter third number"/>
+        <input type="buttom" id="bt" value="OK" onclick="getValueFromHTML()"/>
+    </form>
+    
+<script>
+     D=document.getElementById("dv");    
+     function getValueFromHTML()
+        {
+          F1= Number(document.getElementById("f1").value) ;  
+          F2= Number(document.getElementById("f2").value) ;
+          F3= Number(document.getElementById("f3").value) ;
+         
+         D.innerHTML+="Sum: "+(F1+F2+F3); 
+         D.innerHTML+="<br>";
+         D.innerHTML+="Mean: "+(F1+F2+F3)/3; 
+        } 
+    </script>
+    
+</body>
+</html>

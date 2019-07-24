@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+    .card
+        {
+            margin: 10px;
+            border: 1px solid black;
+        }
+        
+    .but
+        {
+            margin: 10px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    .container
+        {
+           margin-top: 30px; 
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-8">
+<form>
+    <div class="form-row">
+        <div class="form-group col-5">
+            <label for="inputTitle">Title</label>
+            <input type="text" class="form-control" id="inpuTitle">
+        </div>
+        <div class="form-group col-2">
+            <label for="inputType">Type</label>
+            <select id="inputType" class="form-control">
+                <option selected></option>
+                <option>Movie</option>
+                <option>Series</option>
+                <option>Episode</option>
+            </select>
+        </div>
+
+        <div class="form-group col-2">
+            <label for="inputYear">Year</label>
+            <input type="text" class="form-control" id="inputYear">
+        </div>
+        
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-3">
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Search" onclick="validInp()" />
+        </div>
+        <div class="form-group col-3">
+            <input type="buttom" class="btn btn-primary but" id="bt2" value="Resert" onclick="Resert()" />
+        </div>
+    </div>
+</form>
+ 
+<div class="row prin">
+
+</div>
+</div>
+
+<div class="col-4 prinMov">
+    
+</div>
+
+</div>
+</div>
+</body>
+<script>
+    key=`4c69fc51`;
+    arr=[];
+    
+    function validInp()
+    {
+//       myTitle=inpuTitle.value;
+           
+         var tit=new RegExp('^[a-zA-Z0-9]+$');
+         
+         var check=tit.test(inpuTitle.value);
+         
+           if (check==false)
+             {
+             alert("Title is not correct!");
+             }
+                 
+           else if (!inpuTitle.value)
+             {
+             alert("Please. enter title!");
+             }   
+           else
+                        {
+                        Search();  
+                        }
+    }
+    
+    function Search()
+        {
+            var myUrl = `http://www.omdbapi.com/?apikey=${key}&s=${inpuTitle.value}`;
+            if (inputType.value)
+                {
+                   myUrl+=`&type=${inputType.value}`;
+                }
+            else if (inputYear.value)
+                {
+                   myUrl+=`&y=${inputYear.value}`;
+                }
+             
+             
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+           if (data.Response == "True") {
+           arr = data.Search;
+           console.log(arr);       
+						}
+         },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        });
+            print();
+        }
+            
+  function print()
+        {
+        console.log(11111111);
+        str="";
+        var $prin=$('.prin');
+        $(".prin").html('');
+         x=0;
+         $.each(arr,function(i,arr_prin)
+               {
+              str="<div class='card' style='width: 18rem;'>";
+              str+="<img class='card-img-top' src="+arr_prin.Poster+" alt='Card image cap'>";
+              str+="<div class='card-body'>";
+              str+="<h5 class='card-title'>"+arr_prin.Title+"</h5>";
+              str+="<p class='card-text'>"+arr_prin.Year+"</p>";
+              str+="<p class='card-text'>"+arr_prin.Type+"</p>";
+//              str+="<p class='card-text'>"+arr_prin.imdbID+"</p>";
+//              str+="<p class='card-text'>"+x+"</p>";
+              str+="<a href='#' class='btn btn-primary' onclick='goToMov("+x+")'>Read more</a>";
+              str+="</div>";
+              str+="</div>";
+              x++;
+             $prin.append(str);
+               });
+        }
+            
+        function goToMov(x)
+    
+    {       idMov=arr[x].imdbID;
+            console.log(x);
+            var myUrl = `http://omdbapi.com/?apikey=${key}&i=${idMov}`;
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+                if (data.Response == "True") 
+                       {
+							movie = data;
+                            console.log(data);
+						}
+            },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        });
+            printMov();
+        }
+        
+    function printMov()
+    {
+        $(".prinMov").html('');
+        str="";
+        var $prinMov=$('.prinMov');
+        str="<div class='card' style='width: 18rem;'>";
+              str+="<img class='card-img-top' src="+movie.Poster+" alt='Card image cap'>";
+              str+="<div class='card-body'>";
+              str+="<h5 class='card-title'>"+movie.Title+"</h5>";
+              str+="<p class='card-text'>"+movie.Year+"</p>";
+              str+="<p class='card-text'>"+movie.Type+"</p>";
+              str+="<p class='card-text'>"+movie.Plot+"</p>";
+              str+="</div>";
+              str+="</div>";
+        
+        $prinMov.append(str);
+    }
+       
+    function Resert()
+    {
+        $(".prin").html('');
+        $(".prinMov").html('');
+        $("#inpuTitle").val('');
+        $("#inputType").val(''); 
+        $("#inputYear").val(''); 
+    }
+    
+    
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+  
+</head>
+<body>
+    <div class="row p-3">
+    <div class="col-3">
+        <form>
+            <div class="form-group">
+                <label for="f1">Enter Name</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter name" onchange="CheckName()">
+            </div>
+            <div class="form-group">
+                <label for="f2">Enter Mail</label>
+                <input type="text" class="form-control" id="f2" placeholder="Enter Mail" onchange="CheckMail()">
+            </div>
+            <div class="form-group">
+                <label for="f3">Enter phone</label>
+                <input type="text" class="form-control" id="f3" placeholder="Enter phone" onchange="CheckPhone()">
+            </div>
+            <div class="form-group">
+                <label for="f3">Enter age</label>
+                <input type="text" class="form-control" id="f4" placeholder="Enter age" onchange="CheckAge()">
+            </div>
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Sand" onclick="getValueFromHTML()" />
+        </form>
+    </div>
+    </div>
+    
+ <script>
+     
+     
+     function CheckName() 
+     {
+        
+         var tx=new RegExp('^[A-Za-z\-]+$');
+         
+         var check=tx.test(f1.value);
+         if (check==false)
+         {
+             alert("Name is not correct!");
+         }
+         
+         else if ((f1.value.length)<3)
+         {
+             alert("Name is not correct!");
+         }
+        
+     }
+     
+         
+        function CheckMail()
+     {
+         Mail=document.getElementById("f2").value;
+         isCorrect=validateEmail(Mail);
+              
+         if (isCorrect==false)
+             {
+                 alert("Mail is not correct!");
+             }
+         
+     }
+         
+        function validateEmail(email) 
+     {
+    var re  = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+    }
+     
+     function CheckPhone() 
+     {
+         var num=new RegExp('^[0-9\-]+$');
+         
+         var check=num.test(f3.value);
+         if (check==false)
+         {
+             alert("Phone is not correct!");
+         }
+         
+         else if ((f3.value.length)<3||(f3.value.length)>10)
+         {
+             alert("Phone is not correct!");
+         }
+        
+     }
+     
+     
+      function CheckAge() 
+     {
+         var age=new RegExp('^[0-9]+$');
+         
+         var check=age.test(f4.value);
+         if (check==false)
+         {
+             alert("Age is not correct!");
+         }
+         
+         else if ((f4.value)>120)
+         {
+             alert("Age is not correct!");
+         }
+        
+     }
+         arr=[];  
+
+          function getValueFromHTML()
+        {
+          student={};    
+          student.name=f1.value ;  
+          student.mail=f2.value ;
+          student.phone=f3.value ;
+          student.age=f4.value ;
+          arr.push(student);
+            
+          console.log(arr);
+
+        }
+    </script>    
+</body>
+</html>

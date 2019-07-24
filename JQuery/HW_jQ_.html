@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <title>Document</title>
+    <style>
+     .menu
+        {
+            background-color: antiquewhite;
+        }
+        
+     .pr
+        {
+           font-size: 20px; 
+           text-align: center;
+            margin-top: 50px;
+        }
+    
+    
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top menu">
+  <div class="container">
+    <a class="navbar-brand b" atr="home" href="#">Home</a>
+    <a class="navbar-brand b" atr="about" href="#">About</a>
+    <a class="navbar-brand b" atr="gallery" href="#">Gallery</a>
+    <a class="navbar-brand b" atr="contact" href="#">Contact</a>
+  </div>
+</nav>
+ <div class="print">  
+<!--
+   <div class="home pr">
+      This is home.
+       
+   </div>
+   
+   <div class="about pr">
+      This is About.
+       
+   </div>
+   
+   <div class="gallery pr">
+      This is Gallery.
+       
+   </div>
+   
+   <div class="contact pr">
+      This is Contact.
+       
+   </div>
+-->
+ </div>  
+    
+    <script>
+        
+        
+            let pages=['home','about','gallery','contact'];
+            var $print=$('.print');
+        
+            $.each(pages,function(i,page)
+               {
+             $print.append('<div class="'+page+' pr">This is the '+page+'  page</div>');
+//             $(this).addClass('pr');
+//             $(this).addClass(page);   
+         });
+        
+        
+            $('.pr').hide()
+            $('.b').click(function() {
+                let page=($(this).attr('atr'));
+                $('.pr').hide();
+                $('.'+page).show();
+            });
+//     
+//        
+//        Card = $('.card');
+//            Card.append(`<div class="card-header">
+//<button type="button" class="btn btn-danger" mp="cd1"> Home </button>
+//<button type="button" class="btn btn-danger" mp="cd2"> About </button>
+//<button type="button" class="btn btn-danger" mp="cd3"> Gallery </button>
+//<button type="button" class="btn btn-danger" mp="cd4"> Contact </button> 
+//                        </div>` )
+//                        
+//                        
+//                        
+//                        
+//    Card.append(`<div class="card-body" id="cd1"> <h1> Home </h1> </div>`)
+//    Card.append(`<div class="card-body" id="cd2"> <h1> About </h1> </div>`)
+//    Card.append(`<div class="card-body" id="cd3"> <h1> Gallery </h1> </div>`)
+//    Card.append(`<div class="card-body" id="cd4"> <h1> Contact </h1> </div>`)       
+//        
+        
+        
+    </script>
+</body>
+</html>

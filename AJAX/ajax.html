@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script>
+        var arr;
+        // var url = 'http://localhost/ajax/index.php';
+        var myUrl = 'http://404040.co.il/products.php';
+        $.ajax({
+            type: 'POST',
+            datatype: 'json',
+            url: myUrl,
+            success: function (data) {
+                arr = data;
+                console.log("db:", arr);
+            },
+            error: function (err) {
+                console.log("error : ", error);
+            }
+        });
+
+        console.log("A : ", arr);
+
+
+
+
+
+         //header("Access-Control-Allow-Origin: *");
+        //header('Content-Type: application/json');
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

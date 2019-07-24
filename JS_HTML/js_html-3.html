@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="result">
+       
+        
+    </div>
+    <script>
+        res=0;
+        sum=0;
+        D=document.getElementsByClassName("result");
+        for (i=0; i<30; i++)
+            {
+             num1=Math.floor(Math.random()*4+1);
+             num2=Math.floor(Math.random()*4+1);
+              if (num1==num2)
+                    {
+                       res=1; 
+                       sum++;    
+                    }
+                else 
+                    {
+                       res=0; 
+                    }
+                 D[0].innerHTML+="<div>"+num1+"-"+num2+" | "+res+"</div>";
+                 D[0].innerHTML+="<hr>";
+               }
+           D[0].innerHTML+="Result: "+sum;
+   </script>
+</body>
+</html>

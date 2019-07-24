@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+    .card
+        {
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-8">
+<div class="row p-9">
+    <div class="col-8">
+        <form>
+            <h1>Search</h1>
+            <div class="form-group">
+                <label for="f1">Enter Food</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter Food">
+            </div>
+
+
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Search" onclick="Search()" />
+
+        </form>
+    </div>
+</div>
+<div class="row prin">
+
+<!--<div class="prin">-->
+<!--
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+-->
+<!--</div>-->
+</div>
+</div>
+
+<div class="col-4 prinRec">
+    
+</div>
+
+</div>
+</div>
+</body>
+<script>
+    
+    arr=[];
+    function Search()
+        {
+            var myUrl = `https://www.food2fork.com/api/search?key=4a33c66a6524a05bac0f76d3a6348d13&q=${f1.value}`;
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+//            console.log(data);
+            arr=JSON.parse(data).recipes; 
+//            console.log(data.recipes)
+            
+            },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        });
+            print();
+        }
+            
+  function print()
+        {
+        console.log(11111111);
+        str="";
+        var $prin=$('.prin');
+//        $(".prin").html('');
+         $.each(arr,function(i,arr_prin)
+               {
+              str="<div class='card' style='width: 18rem;'>";
+              str+="<img class='card-img-top' src="+arr_prin.image_url+" alt='Card image cap'>";
+              str+="<div class='card-body'>";
+              str+="<h5 class='card-title'>"+arr_prin.title+"</h5>";
+              str+="<p class='card-text'>"+arr_prin.social_rank+"</p>";
+              str+="<a href='#' class='btn btn-primary' onclick='goToRec("+arr_prin.recipe_id+")'>Go somewhere</a>";
+              str+="</div>";
+              str+="</div>";
+
+             $prin.append(str);
+               });
+        }
+            
+        function goToRec(idRecipe)
+    
+    {       console.log(idRecipe);
+            var myUrl = `https://www.food2fork.com/api/get?key=4a33c66a6524a05bac0f76d3a6348d13&rId=${idRecipe}`;
+            $.ajax({
+            type: 'GET',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+            console.log(data);
+            recipe=JSON.parse(data).recipe;   
+            },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        });
+            printRec();
+        }
+        
+    function printRec()
+    {
+        $(".prinRec").html('');
+        str="";
+        var $prinRec=$('.prinRec');
+        str='';
+        str+="<div>"+recipe.ingredients+"<div>";
+        
+        $prinRec.append(str);
+    }
+            
+</script>
+</html>

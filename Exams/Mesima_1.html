@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <style>
+        
+     .but
+        
+        {
+            margin: 10px;
+        }
+        
+      .container
+        
+        {
+            padding-top: 30px;
+        }
+        
+      #dv 
+        
+        {
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+            
+        }
+        
+    </style>
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+    <div class="col-4">
+        <form>
+            <div class="form-group">
+                <label for="f1">Enter Radius</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter Radius">
+            </div>
+            <div>Volume</div>
+            <div id="dv"></div>
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Calculate" onclick="validRad()" />
+            <input type="buttom" class="btn btn-primary but" id="bt1" value="Clear" onclick="clearCanvas()" />
+            <input type="buttom" class="btn btn-primary but" id="bt1" value="Start" onclick="startFly()" />
+        </form>
+    </div>
+    <div class="col-8">
+         <canvas id="myCanvas" width="500" height="500"></canvas>
+    </div>
+    </div>
+    </div>
+  
+   <script>
+       
+        var canvas=document.getElementById('myCanvas')
+        canvas.style.backgroundColor='grey';
+        var ctx=canvas.getContext('2d');
+       
+       function validRad()
+       {
+         myRadius=f1.value;
+           
+         var rad=new RegExp('^[0-9]+$');
+         
+         var check=rad.test(f1.value);
+         
+           if (check==false)
+             {
+             alert("Radius is not correct!");
+             }
+           
+             else if (myRadius>=250)
+                    {
+                    alert("Radius too big!");
+                    }
+                    else
+                        {
+                        calculateVol(); 
+                        }
+       }
+       
+       function calculateVol()
+       {  
+           vol=(4*3.14*myRadius*myRadius*myRadius)/3;
+           dv.innerHTML=vol;
+           
+           ctx.strokeStyle='red';   
+           ctx.beginPath();       
+           ctx.arc(250,250,myRadius,0,2*Math.PI);  
+           ctx.stroke(); 
+       }
+             
+        function clearCanvas()
+       {
+          ctx.clearRect(0,0,500,500);
+       }
+       
+       function startFly()
+       {
+           myRadius=1;
+           Interval=setInterval(function () { printCircle()}, 100);
+        
+       }
+             
+       function printCircle()
+       { 
+          if (myRadius==250)
+               {
+               clearInterval(Interval);
+               }
+           
+           ctx.strokeStyle='blue';   
+           ctx.beginPath();       
+           ctx.arc(250,250,myRadius,0,2*Math.PI);  
+           ctx.stroke();
+           myRadius=myRadius+1;
+            
+       }
+       
+   </script>
+    
+</body>
+</html>

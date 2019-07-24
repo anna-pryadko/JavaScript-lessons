@@ -1,0 +1,287 @@
+position.html‏
+היום
+10:59
+e
+eliran menachem ערך/ה פריט
+HTML
+position.html
+10:57
+e
+פריט הועלה על ידי eliran menachem
+HTML
+position.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            
+        }
+        body{
+            background-color: silver;
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid black;
+           
+        }
+        h1{
+            text-align: center;
+            color:black;
+        }
+        nav{
+            background-color: palegoldenrod;
+            float: right;
+            width: 99%;
+            border: 1px solid black;
+            margin-top: 4px;
+           
+            padding: 2px;
+        }
+        .boxNav1{
+            width: 19.5%;
+            float: right;
+            border: 1px solid black;
+            text-align: center;
+            height: 40px;
+            font-family: 'Bellefair', sans-serif; 
+            margin: 2px;
+
+        }.boxNav2{
+            width:  19.5%;
+            float: right;
+            border: 1px solid black;
+            text-align: center;
+            height: 40px;
+            font-family: 'Bellefair', sans-serif;
+            margin: 2px;
+
+        }.boxNav3{
+            width: 19.5%;
+            float: right;
+            border: 1px solid black;
+            text-align: center;
+            height: 40px;
+            font-family: 'Bellefair', sans-serif;  
+            margin: 2px;
+
+        }.boxNav4{
+            width: 19.5%;
+            float: right;
+            border: 1px solid black;
+            text-align: center;
+            height: 40px;
+            font-family: 'Bellefair', sans-serif;  
+            margin: 2px;
+
+        }.boxNav5{
+            width: 19.5%;
+            float: right;
+            border: 1px solid black;
+            text-align: center;
+            height: 40px;
+             font-family: 'Bellefair', sans-serif; 
+            margin: 2px;
+
+        }
+        .boxNav5:hover{
+            color:white;
+            background-color: blue;
+            font-size: 24px;
+        }.boxNav4:hover{
+            color:white;
+            background-color: blue;
+            font-size: 24px;
+        }.boxNav3:hover{
+            color:white;
+            background-color: blue;
+            font-size: 24px;
+        }.boxNav2:hover{
+            color:white;
+            background-color: blue;
+            font-size: 24px;
+        }.boxNav1:hover{
+            color:white;
+            background-color: blue;
+            font-size: 24px;
+        }
+        header{
+            float: left;
+            border: 1px solid black;
+            width: 79%;
+            margin-left: 1%;
+            margin-top: 1%;
+            
+        }
+        aside{
+            float: right;
+            border: 1px solid black;
+            width: 18%;
+            margin-top: 1%;
+            margin-right: 1%;
+            
+            
+        }
+        footer{
+            border: 1px solid black;
+            width: 98%;
+            float: right;
+            margin-top: 1%;
+            margin-right: 1%;
+        }
+        .iconBtc{
+            color: red;
+            font-size: 30px;
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+        
+        }  
+        .iconH{
+            color: blue;;
+            font-size: 30px;
+            position: fixed;
+            bottom: 5px;
+            right: 30px;
+        
+        }
+        .iconE{
+            color:green;
+            font-size: 30px;
+            position: fixed;
+            bottom: 5px;
+            right: 55px;
+        
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Alef|Bellefair|Tinos" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+<!-- פונטים מאתר של גוגל פונט
+font-family: 'Alef', sans-serif;
+font-family: 'Tinos', serif;
+font-family: 'Bellefair', serif;
+-->
+</head>
+<body>
+  <i class="fab fa-btc iconBtc"></i>
+  <i class="fab fa-ethereum iconH"></i>
+  <i class="fas fa-euro-sign iconE"></i>
+   <h1>
+       position fixed HOMEWORK 25.10.18
+   </h1>
+    <div class="allSite">
+        <nav>
+            <div class="boxNav1">אודות    </div>
+            <div class="boxNav2">תפריט    </div>
+            <div class="boxNav3">צור קשר  </div>
+            <div class="boxNav4">ממליצים    </div>
+            <div class="boxNav5">שלח משוב    </div>
+        </nav>
+        <header>
+          <h2>
+              לורם איפסום
+          </h2>
+           <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p><p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p><p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p> <p>
+            בניגוד לטענה הרווחת, Lorem Ipsum אינו סתם טקסט רנדומלי. יש לו שורשים וחלקים מתוך הספרות הלטינית הקלאסית מאז 45 לפני הספירה.
+ מה שהופך אותו לעתיק מעל 2000 שנה. 
+ריצ'רד מקלינטוק, פרופסור לטיני בקולג' של המפדן-סידני בורג'יניה, חיפש את אחת המילים המעורפלות ביותר בלטינית - consectetur - מתוך פסקאות של Lorem Ipsum ודרך ציטוטים של המילה מתוך הספרות הקלאסית,<br>
+ הוא גילה מקור בלתי ניתן לערעור. Lorem Ipsum מגיע מתוך מקטע 1.10.32 ו- 1.10.33 של "de Finibus Bonorum et Malorum" (הקיצוניות של הטוב והרע) שנכתב על ידי קיקרו ב-45 לפני הספירה. ספר זה הוא מאמר על תאוריית האתיקה,<br>
+ שהיה מאוד מפורסם בתקופת הרנסנס. השורה הראשונה של "Lorem ipsum dolor sit amet", שמופיעה בטקסטים של Lorem Ipsum, <br>
+           באה משורה במקטע 1.10.32
+            </p>
+          </header>
+        <aside>
+            aside
+        </aside>
+        <footer>
+            footer
+        </footer>
+        
+        
+        
+        
+    </div>
+</body>
+</html>

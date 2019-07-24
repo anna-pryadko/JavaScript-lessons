@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .box
+        {
+            position: absolute;
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box" id="pr">
+        
+    </div>
+    
+    <script>
+    i=0;     
+    Interval=setInterval(function () { printBox()}, 500);
+    pix=0; 
+    ScreenWidth=window.innerWidth;
+   
+        
+        function printBox()
+        {   
+           
+            pr.style.left=pix+"px";
+            pix+=100;
+         
+            if (pix>ScreenWidth)
+                pix=0
+           
+        }
+    
+    </script>
+</body>
+</html>

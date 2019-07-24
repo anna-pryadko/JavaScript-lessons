@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+</head>
+<body>
+  <div class="row p-3">
+    <div class="col-3">
+        <form>
+            <div class="form-group">
+                <label for="f1">Enter Mail</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter Mail">
+            </div>
+            <div class="form-group">
+                <label for="f2">Enter Password</label>
+                <input type="text" class="form-control" id="f2" placeholder="Enter Password">
+            </div>
+        
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Sand" onclick="getValueFromHTML()" />
+        </form>
+    </div>
+    </div>
+    
+   <script>
+           
+       if(localStorage.mail&&localStorage.password)
+           {
+            window.location.href="home.html";   
+           }
+    
+       
+//    n=10;
+//    localStorage.num=n; 
+//       if(localStorage.num)
+//           {
+//       alert(localStorage.num)
+//               
+//           }
+//       console.log(localStorage);
+   </script>
+    
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Chat List</title>
+    <style>
+
+         h1
+        {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #f2
+        {
+            height: 100px;
+            overflow: scroll;
+            
+        }
+        
+       .update
+        {
+            
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="row p-9">
+    <div class="col-8">
+       <h1>Chat List</h1>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th scope='col'>Id</th>
+                    <th scope='col'>Name</th>
+                    <th scope='col'>Text</th>
+                    <th scope='col'>Delete</th>
+                    <th scope='col'>Update</th>
+                </tr>
+            </thead>
+            <tbody class="prin">
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3 offset-1">
+        <form>
+           <h1>Add</h1>
+            <div class="form-group">
+                <label for="f1">Enter Name</label>
+                <input type="text" class="form-control" id="f1" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="f2">Enter Text</label>
+                <input type="textarea" class="form-control" id="f2" placeholder="Enter Text">
+            </div>
+
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Send" onclick="Send()" />
+
+        </form>
+        
+        
+        <form class="update">
+           <h1>Update</h1>
+            <div class="form-group">
+                <label for="f1">Enter Name</label>
+                <input type="text" class="form-control" id="f3" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="f2">Enter Text</label>
+                <input type="textarea" class="form-control" id="f4" placeholder="Enter Text">
+            </div>
+
+            <input type="buttom" class="btn btn-primary but" id="bt" value="Send" onclick="SendUpp()" />
+
+        </form> 
+    </div>
+</div>
+</div>
+    <script>
+        $('.update').hide();
+        var arr=[];
+        getChatList();
+        
+        function getChatList()
+        {
+            var myUrl = 'http://404040.co.il/chat/select.php';
+            $.ajax({
+            type: 'POST',
+            datatype: 'json',
+            url: myUrl,
+            async: false,    
+            success: function (data) {
+            arr = data;
+            console.log("db:", arr);
+            },
+            error: function (err) {
+            console.log("error : ", error);
+            }
+        });
+            
+        printChat();
+        }        
+      
+        function printChat()
+        {
+        str="";
+        var $prin=$('.prin');
+        $(".prin").html('');
+         $.each(arr,function(i,arr_prin)
+               {
+             str="<tr>";
+             str+="<td>"+arr_prin.id+"</td>";  
+             str+="<td>"+arr_prin.name+"</td>";
+             str+="<td>"+arr_prin.title+"</td>";
+             str+="<td><button type='button' class='btn btn-primary' onclick='deleteMess("+arr_prin.id+")'>Delete</button></td>";
+             
+             str+="<td><button type='button' class='btn btn-primary' onclick='updateMess("+arr_prin.id+")'>Update</button></td>";
+             
+             str+="</tr>";
+             
+             $prin.append(str);
+               });
+        }
+                
+        function Send()
+        {
+          var myUrl = `http://404040.co.il/chat/insert.php?name=${f1.value}&message=${f2.value}`;
+            
+         $.ajax({
+         type: 'POST',
+         datatype: 'json',
+         async: false,   
+         url: myUrl,
+         success: function (data) {
+                   },
+         error: function (err) {
+         console.log("error : ", err);
+                 }
+                 })
+           getChatList();
+           $("#f1").val('');
+           $("#f2").val(''); 
+           console.log(11111);
+        }
+        
+        
+        function deleteMess(i)
+        {
+         var myUrl = `http://404040.co.il/chat/delete.php?id=${i}`;
+         console.log(myUrl);  
+         $.ajax({
+         type: 'POST',
+         datatype: 'json',
+         async: false,   
+         url: myUrl,
+         success: function (data) {
+                   },
+         error: function (err) {
+         console.log("error : ", err);
+                 }
+                 });
+        getChatList();
+        }
+        
+        function updateMess(i)
+        {
+         console.log(i);
+         $('.update').show(); 
+         y=arr.findIndex((x)=>x.id==i); 
+         console.log(y);
+         $("#f3").val(arr[y].name);
+         $("#f4").val(arr[y].title);  
+         uppId=i;
+         }
+             
+        function SendUpp() 
+        {     
+         var myUrl = `http://404040.co.il/chat/update.php?id=${uppId}&name=${f3.value}&message=${f4.value}`;
+         console.log(myUrl);  
+         $.ajax({
+         type: 'POST',
+         datatype: 'json',
+         async: false,   
+         url: myUrl,
+         success: function (data) {
+                   },
+         error: function (err) {
+         console.log("error : ", err);
+                 }
+                 });
+        getChatList();
+        $('.update').hide()
+        }
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+

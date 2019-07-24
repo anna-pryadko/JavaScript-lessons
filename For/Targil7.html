@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    numbers = [];
+  
+ for (i=0;;i++)
+  {  
+        N = Number(prompt("Enter number"));
+        
+       if (N==0 && i==0) 
+          {
+              alert("Error!");
+              break;
+          }
+       else if (N<=0) break;
+      
+      numbers.push(N);
+      
+  }
+        
+        
+            
+ console.log(numbers)
+        
+  max=0;
+        
+  for (i = 0; i < numbers.length; i++) 
+  {
+      if (numbers[i] > max)
+      {
+         max = numbers[i];
+      }
+  }
+        
+console.log("Max is "+max);
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

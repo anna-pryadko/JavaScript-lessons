@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    x=Number(prompt("Enter X")); 
+    y=Number(prompt("Enter Y")); 
+    Res=x;
+    i=1
+    CalcExpon();
+    alert(Res);
+    
+   
+    function CalcExpon()
+        {
+         for (i=1;i<=y;i++)
+             {
+                Res=Res*x;
+                i++;  
+             }
+            
+            return(Res);
+        }
+        
+    </script>
+</body>
+</html>

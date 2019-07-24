@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <style>
+    .card
+        {
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+    .but 
+    {
+        margin: 10px;
+        margin-top: 30px;
+    } 
+
+    .category4,.category5
+    {
+        display: none;
+    }  
+
+</style>
+
+</head>
+<body>
+        <div class="container">
+            <div class="category4">
+            <form>
+                <input type="buttom" class="btn btn-primary but" id="bt1" value="Earrings" onclick="goToCategory(13)" />
+                <input type="buttom" class="btn btn-primary but" id="bt2" value="Necklace" onclick="goToCategory(14)" />
+                <input type="buttom" class="btn btn-primary but" id="bt3" value="Rings" onclick="goToCategory(15)" />
+            </form>
+            </div>
+       
+
+       
+                <div class="category5">
+            <form>
+                <input type="buttom" class="btn btn-primary but" id="bt1" value="Games" onclick="goToCategory(155)" />
+                <input type="buttom" class="btn btn-primary but" id="bt2" value="Watches" onclick="goToCategory(158)" />
+                <input type="buttom" class="btn btn-primary but" id="bt3" value="Travels" onclick="goToCategory(15)" />
+            </form>
+                 </div>
+        </div>
+ 
+</body>    
+
+<script>
+
+id=localStorage.id; 
+console.log(id);
+
+if (id==4)
+{
+    $('.category4').show();
+}
+else if (id==5)
+{
+    $('.category5').show();
+}
+
+function goToCategory(IdCategory)
+{
+    localStorage.IdCategory=IdCategory;
+    window.location.href="home.html"; 
+}
+    </script>
+
+</html>

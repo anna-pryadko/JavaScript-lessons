@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas.js</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    	<br/><!-- Just so that JSFiddle's Result label doesn't overlap the Chart -->
+    	<div id="chartContainer" style="height: 360px; width: 100%;"></div>
+    	<script>
+			"use strict"
+			
+			let options = {
+				interactivityEnabled: true,
+				animationEnabled: true,
+				axisX: {
+					valueFormatString: "HH:mm:ss",
+					titleFontFamily: "-apple-system, sans-serif",
+					labelFontFamily: "-apple-system, sans-serif"
+				},
+				toolTip: {
+					shared: true
+				},
+				legend: {
+					cursor: "pointer",
+					verticalAlign: "bottom",
+					fontFamily: "-apple-system, sans-serif",
+					itemclick: toggleCoinAppearance
+				},
+				data: []
+			};
+			
+			let chart = new CanvasJS.Chart("chartContainer", options);
+
+			function toggleCoinAppearance(e) {
+				if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+				}
+				e.chart.render();
+			}
+			
+			var reportsIntervalID;
+			let coins = ["btc","eth","xrp","ltc","eos"];
+			
+			function setupReports() {
+				options.title = {
+									text: `${coins.join(", ").toUpperCase()} to USD`,
+								 	fontFamily: "-apple-system, sans-serif"
+								 };
+			
+				$.each(coins, function(index, coin) {
+					const num = index + 1;
+					
+					if (num == 1) {
+						options[`axisY`] = {
+												title: "Coin Value",
+												titleFontFamily: "-apple-system, sans-serif",
+												labelFontFamily: "-apple-system, sans-serif",
+												valueFormatString: "#,###.###$",
+												includeZero: false
+											}
+					} else {
+						options[`axisY${num}`] = {
+												  	titleFontFamily: "-apple-system, sans-serif",
+													labelFontFamily: "-apple-system, sans-serif",
+													valueFormatString: "#,###.###$",
+													includeZero: false
+												  }
+					}
+					
+					options.data.push({
+										type: "spline",
+										name: coin.toUpperCase(),
+										titleFontFamily: "-apple-system, sans-serif",
+										labelFontFamily: "-apple-system, sans-serif",
+										xValueFormatString: "HH:mm:ss",
+										yValueFormatString: "#,###.###$",
+										showInLegend: true,
+										dataPoints: []
+									});
+				})
+				
+				reportsIntervalID = setInterval(updateReport, 2000);
+			}
+			
+			setupReports()
+			
+			async function updateReport() {
+				const currentPrices = await getReports(coins);
+				
+				$.each(options.data, function(index, currentCoinData) {
+					const num = index + 1;
+					const coinName = coins[index].toUpperCase();
+					
+					let y = currentPrices[coinName]["USD"];
+					let x = new Date();
+					currentCoinData.dataPoints.push({x: x, y: y})
+				})
+				
+				console.log(options);
+				
+				chart.render();
+			}
+
+			async function getReports(coins) {
+				const compareBaseURL = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=;;;Coin;;;&tsyms=USD`;
+				const endpoint = compareBaseURL.replace(";;;Coin;;;",coins.join(",").toUpperCase());
+	
+				console.log(endpoint);
+	
+				let currentCoinPrice;
+
+				$.ajax({
+					type: 'GET',
+					datatype: 'json',
+					url: endpoint,
+					async: false,
+					success: (data) => {            
+						console.log("report call response: ", data);
+						currentCoinPrice = data;
+					},
+					error: (error) => {
+						printError(`Request Error - ${error.status}`);
+						console.log("report call error: ", error);
+					}
+				});
+	
+				return currentCoinPrice;
+			}
+        </script>
+    </body>
+</html>

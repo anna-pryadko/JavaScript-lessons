@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let arr=[2,4,6,8,10];
+//    let arrNew=[];
+//    for (x of arr)
+//        {
+//            x=x*5;
+//            arrNew.push(x);
+//        }
+//       
+//       console.log(arrNew);
+       
+//       let num=arr.map(sum=(x)=> {return x*5;});
+//       console.log(num);
+    
+       let residents={
+           "address":"aaaaaaaa",
+           "names":[
+           {"name":"Anna","mail":"1@1.mail"},
+           {"name":"Dani","mail":"2@2.mail"},
+           {"name":"Mike","mail":"3@3.mail"}
+       ]
+       }
+//       
+//       let residentsNew=residents.names.map((x)=>{
+//           
+//           x.address="aaaaaaaa";
+//           return x;
+//           
+//       }
+//                                     
+//       )
+//       
+//       console.log(residents);
+//       console.log(residentsNew);
+       
+       let fi=residents.names.findIndex((x)=>x.mail=="3@3.mail");
+       
+       console.log(fi);
+       
+    
+    </script>
+    
+</body>
+</html>
